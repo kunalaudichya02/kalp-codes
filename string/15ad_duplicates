@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int stringLen(char *input) {
+    int length = 0;
+    while (input[length] != '\0') {
+        length++;
+    }
+    return length;
+}
+
+void removeDuplicates(char *input) {
+    int len = stringLen(input);
+    int i = 0, j = 0;
+
+    while (i < len) {
+        if (input[i] == input[i + 1]) {
+            while (input[i] == input[i + 1]) {
+                i++;
+            }
+        } else {
+            input[j++] = input[i++];
+        }
+    }
+    input[j] = '\0';
+    if (j<len) {
+        removeDuplicates(input);
+    }
+}
+
+int main() {
+    char input[100];
+    printf("Enter the inputing: ");
+    scanf("%s", input);
+
+    removeDuplicates(input);
+    printf("Resulting inputing: %s\n", input);
+
+    return 0;
+}
