@@ -42,7 +42,7 @@ void display(node* head){
 node* sort(node* head){
     node* temp1 = head;
     node* temp2 = head;
-int swapped=1;
+    int swapped=1;
     while(swapped){
         swapped=0;
         temp2= temp1->next;

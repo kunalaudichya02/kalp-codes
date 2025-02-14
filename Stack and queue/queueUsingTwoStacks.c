@@ -17,6 +17,20 @@ void stackInit(stack *s, int size) {
     s->top = -1;
 }
 
+
+typedef struct queue {
+    stack *s1;
+    stack* s2;
+} queue;
+
+void queueInit(queue *q, int size) {
+    q->s1 = (stack*)malloc(sizeof(stack));
+    q->s2 = (stack*)malloc(sizeof(stack));
+    stackInit(q->s1, size);
+    stackInit(q->s2, size);
+}
+
+
 int isEmpty(stack *s) {
     return s->top == -1;
 }
@@ -35,18 +49,6 @@ int pop(stack *s) {
         return -1;
     }
     return s->arr[s->top--];
-}
-
-typedef struct queue {
-    stack *s1;
-    stack* s2;
-} queue;
-
-void queueInit(queue *q, int size) {
-    q->s1 = (stack*)malloc(sizeof(stack));
-    q->s2 = (stack*)malloc(sizeof(stack));
-    stackInit(q->s1, size);
-    stackInit(q->s2, size);
 }
 
 void enqueue(queue *q, int value) {

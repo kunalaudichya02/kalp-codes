@@ -69,7 +69,7 @@ node *findMiddle(node *head)
 int main(){
     node* head = NULL;
     int data;
-   while (scanf("%d", &data) == 1)
+    while (scanf("%d", &data) == 1)
     {
         head = createList(head, data);
         if (getchar() == '\n')
